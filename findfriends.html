@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="icon" href="img/n.jpg" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+
+    <title>Find Friend | Let's Chat</title>
+    <style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+  font-weight: bold;
+}
+.container {
+  margin: auto;
+  font-family: "Poppins", Arial, san-serif;
+  line-height: 1.4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  height: 100%;
+}
+.btn-cont{
+  justify-content: center;
+}
+.row{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.card {
+  min-width: 300px;
+  background: #fff;
+  background-size: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -5px rgba(60, 60, 60, 0.2);
+  text-align: center;
+  padding: 30px;
+}
+.card img {
+  background-color: #dddfe6;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: auto auto 15px;
+  display: block;
+}
+.card h1 {
+  font-size: 22px;
+  margin: 10px auto 0;
+  letter-spacing: 1px;
+}
+.card h2 {
+  margin: auto;
+  color: #b1b6c6;
+  font-weight: 300;
+  font-size: 14px;
+}
+.navbar{
+  height: 60px;
+  padding-left:30px;
+}
+.fa-arrow-circle-left{
+  font-size: 25px;
+}
+.title-down{
+  font-size: 26px;
+}
+@media only screen and (max-width: 600px) {
+  .card {
+  width: 300px;
+  background: #fff;
+  background-size: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px -5px rgba(60, 60, 60, 0.2);
+  text-align: center;
+  padding: 30px;
+}
+.title-down{
+  display:none;
+}
+}
+
+    </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <a href="home.php"><i class="fas fa-arrow-circle-left"></i></a> &nbsp;&nbsp;&nbsp;
+          <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><b>Find Friends</b></li>
+        </ol>
+      </nav>
+    </div>
+  </nav>
+
+  <div class="container mt-2 pt-5 bg-white">
+      <div class="row p-4 main-cont" >
+      <div class="title-container">
+        <h1 class="title">Search Your Best Friend Here</h1>
+        <h1 class="title-down">Beware Of Fake Ones...</h1>
+      </div>
+
+      <fieldset class="field-container">
+        <input type="text" placeholder="Search Your Friend..." class="field" id="searchVal" name="searchVal" />
+        <div class="icons-container">
+          <div class="icon-search"></div>
+          <div class="icon-close">
+            <div class="x-up"></div>
+            <div class="x-down"></div>
+          </div>
+        </div>
+      </fieldset>
+      </div>
+  </div>
+
+  <div class="container pt-1 bg-white" style="overflow:auto">
+      <div class="row p-2" id="row">
+          
+      </div>
+  </div>
+
+</body>
+</html>
+<script>
+  $(document).ready(function(){
+    var info = {"searchVal": $('#searchVal').val()}
+	       $.ajax({
+	           type: "POST",
+	           data: info,
+	        
+             
+	           dataType: "text",
+	           success: function(data){
+              $("#row").html(data);
+             }
+	       });
+});
+
+$(document).ready(function() {
+ $('.icon-close').click(function() {
+    $('#searchVal').val(''); 
+    var info = {"searchVal": $('#searchVal').val()}
+	       $.ajax({
+	           type: "POST",
+	           data: info,
+	          
+             
+	           dataType: "text",
+	           success: function(data){
+              $("#row").html(data);
+             }
+	       });
+});
+
+  $("#searchVal").keyup(function() {
+    var info = {"searchVal": $('#searchVal').val()}
+	       $.ajax({
+	           type: "POST",
+	           data: info,
+	          //  url: "http://localhost/Namaste/getFriend.php",
+             url: "http://srohackers.epizy.com/getFriend.php",
+	           dataType: "text",
+	           success: function(data){
+              $("#row").html(data);
+             }
+	       });
+	   });
+  });
+  
+
+</script>
+
+<style>
+  .main-cont{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 350px;
+  }
+.field-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  height: 40px;
+}
+
+.icons-container {
+  position: absolute;
+  top: 2.5px;
+  right: 3%;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+}
+
+.icon-close {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 75%;
+  height: 75%;
+  opacity: 0;
+  cursor: pointer;
+  transform: translateX(-200%);
+  border-radius: 50%;
+  transition: opacity 0.25s ease, transform 0.43s cubic-bezier(0.694, 0.048, 0.335, 1);
+}
+.icon-close:before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 2px solid transparent;
+  border-top-color: #6078EA;
+  border-left-color: #6078EA;
+  border-bottom-color: #6078EA;
+  transition: opacity 0.2s ease;
+}
+.icon-close .x-up {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+.icon-close .x-up:before {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 3px;
+  width: 50%;
+  height: 2px;
+  background-color: #6078EA;
+  transform: rotate(45deg);
+}
+.icon-close .x-up:after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  right: 0px;
+  width: 50%;
+  height: 2px;
+  background-color: #6078EA;
+  transform: rotate(-45deg);
+}
+.icon-close .x-down {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+.icon-close .x-down:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 50%;
+  height: 2px;
+  background-color: #6078EA;
+  transform: rotate(-45deg);
+}
+.icon-close .x-down:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 1px;
+  width: 50%;
+  height: 2px;
+  background-color: #6078EA;
+  transform: rotate(45deg);
+}
+.is-type .icon-close:before {
+  opacity: 1;
+  -webkit-animation: spin 0.85s infinite;
+          animation: spin 0.85s infinite;
+}
+.is-type .icon-close .x-up:before, .is-type .icon-close .x-up:after {
+  -webkit-animation: color-1 0.85s infinite;
+          animation: color-1 0.85s infinite;
+}
+.is-type .icon-close .x-up:after {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.is-type .icon-close .x-down:before, .is-type .icon-close .x-down:after {
+  -webkit-animation: color-1 0.85s infinite;
+          animation: color-1 0.85s infinite;
+}
+.is-type .icon-close .x-down:before {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.is-type .icon-close .x-down:after {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+.icon-search {
+  position: relative;
+  top: 5px;
+  left: 8px;
+  width: 50%;
+  height: 50%;
+  opacity: 1;
+  border-radius: 50%;
+  border: 3px solid #c7d0f8;
+  transition: opacity 0.25s ease, transform 0.43s cubic-bezier(0.694, 0.048, 0.335, 1);
+}
+.icon-search:after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  right: -2px;
+  width: 4px;
+  border-radius: 3px;
+  transform: rotate(-45deg);
+  height: 10px;
+  background-color: #c7d0f8;
+}
+
+.field {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+  transition: all 0.4s ease;
+}
+.field:focus {
+  outline: none;
+  box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+}
+.field:focus + .icons-container .icon-close {
+  opacity: 1;
+  transform: translateX(0);
+}
+.field:focus + .icons-container .icon-search {
+  opacity: 0;
+  transform: translateX(200%);
+}
+</style>
